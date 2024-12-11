@@ -1,0 +1,13 @@
+# Ignore env files
+.venv/
+.env
+
+# Ignore CSV files
+*.csv
+
+#Ignore pyache
+
+**/__pycache__/
+
+# Ignore secret files
+google_client_secret.json
