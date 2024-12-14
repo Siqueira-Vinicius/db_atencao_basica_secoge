@@ -2,46 +2,50 @@
 
 ## Descrição
 
-Este repositório contém um projeto de ETL (Extração, Transformação e Carga) desenvolvido para automatizar o processo de coleta, transformação e carga de dados da Atenção Básica em Saúde. O objetivo é alimentar painéis de análise no Power BI com dados transformados e centralizados em um banco de dados PostgreSQL. O pipeline é construído em Python e utiliza diversas bibliotecas e tecnologias para facilitar a extração de dados de fontes múltiplas, transformação dos dados para atender aos requisitos de visualização e carga no banco de dados.
+Este repositório apresenta um projeto completo de ETL (Extração, Transformação e Carga) desenvolvido para otimizar a coleta, tratamento e centralização de dados da Atenção Básica em Saúde. A solução tem como foco alimentar painéis analíticos no Power BI com informações transformadas e organizadas em um banco de dados PostgreSQL. O pipeline, implementado em Python, integra-se a diversas fontes de dados e aplica transformações para atender aos requisitos de visualização.
 
 ## Funcionalidades
 
-- **Extração**: Coleta de dados a partir de diversas fontes, incluindo Google Sheets, SharePoint e arquivos Excel.
-- **Transformação**: Processamento e transformação dos dados para adequação ao modelo de dados, com integração e normalização das tabelas.
-- **Carga**: Inserção dos dados transformados em um banco de dados PostgreSQL, estruturado em diferentes schemas para organização dos dados.
-- **Integração com Power BI**: Os dados processados são disponibilizados para atualização direta dos painéis do Power BI.
+- **Extração de Dados**:
+  - Coleta de informações de múltiplas fontes, incluindo Google Sheets, SharePoint e arquivos Excel.
+  
+- **Transformação**:
+  - Normalização e integração de tabelas.
+  - Conversão para um modelo de dados consistente.
+
+- **Carga**:
+  - Armazenamento de dados transformados em um banco de dados PostgreSQL.
+  - Estruturação em schemas específicos para organização eficiente.
+
+- **Integração com Power BI**:
+  - Disponibilização de dados centralizados para atualizações dinâmicas dos painéis analíticos.
 
 ## Estrutura do Projeto
 
-A estrutura de pastas do projeto é organizada conforme descrito abaixo:
+A organização do projeto está dividida em módulos claros para facilitar a manutenção e expansão:
 
-- **`src`**: Contém o código principal de processamento de dados.
-  - **`data_processing`**: Scripts para processamento e transformação de dados de diferentes fontes, como `asu.py`, `atendimentos.py`, etc.
-  - **`database`**: Contém o script para criar a conexão com o banco de dados PostgreSQL.
-  - **`sql_operations`**: Scripts para operações SQL específicas, como criação de schemas.
-  - **`utils`**: Utilitários para tarefas comuns, como manipulação de planilhas Excel, autenticação com SharePoint e Google Sheets, e manipulação de chaves primárias.
+- **`src`**: Contém os códigos principais do pipeline.
+  - **`data_processing`**: Scripts para extração e transformação de dados.
+    - Exemplo: `asu.py`, `atendimentos.py`.
+  - **`database`**: Configuração e conexão com o PostgreSQL.
+  - **`sql_operations`**: Scripts para criação de schemas e outras operações SQL.
+  - **`utils`**: Funções auxiliares para manipulação de APIs, arquivos e chaves primárias.
 
-- **`scripts_main`**: Scripts principais para execução do ETL.
-  - **`main.py`**: Script principal para execução do pipeline ETL.
-  
-- **`scripts_sql/transformacoes`**: Scripts que contêm as transformações específicas para cada tabela, utilizando DuckDB como ambiente intermediário.
+- **`scripts_main`**: Scripts de inicialização do processo ETL.
+  - **`main.py`**: Gerenciador principal do pipeline.
+
+- **`scripts_sql/transformacoes`**: Repositório de transformações SQL personalizadas utilizando DuckDB.
 
 ## Tecnologias Utilizadas
 
-- **Python**: Linguagem de programação utilizada para implementar o pipeline ETL.
-- **PostgreSQL**: Banco de dados utilizado para armazenar os dados transformados.
-- **DuckDB**: Utilizado para manipulação intermediária dos dados durante as transformações.
-- **Poetry**: Gerenciador de dependências e ambientes para Python.
-- **pyenv**: Utilizado para gerenciar diferentes versões do Python.
-- **Google Sheets API** e **SharePoint API**: APIs utilizadas para extração de dados de fontes online.
+O projeto utiliza tecnologias robustas e modernas para garantir eficácia e escalabilidade:
 
-## Pré-requisitos
-
-Antes de executar o projeto, certifique-se de que você tem os seguintes itens instalados:
-
-- **Python 3.12** ou superior (gerenciado via **pyenv**)
-- **PostgreSQL**
-- **Poetry**
+- **Python**: Base para desenvolvimento do pipeline ETL.
+- **PostgreSQL**: Banco de dados relacional para armazenamento estruturado.
+- **DuckDB**: Ferramenta leve para manipulações intermediárias.
+- **Poetry**: Gerenciador de dependências e ambientes Python.
+- **pyenv**: Controle de versões do Python.
+- **Google Sheets API e SharePoint API**: Extração direta de dados de fontes online.
 
 ## Instalação
 
@@ -50,3 +54,50 @@ Antes de executar o projeto, certifique-se de que você tem os seguintes itens i
    ```bash
    git clone https://github.com/vinisique/atencao-basica-db.git
    cd atencao-basica-db
+   ```
+
+2. **Configure o ambiente Python**:
+
+   ```bash
+   pyenv install 3.12.0
+   pyenv local 3.12.0
+   poetry install
+   ```
+
+3. **Configure o Banco de Dados**:
+
+   - Certifique-se de que o PostgreSQL está instalado e rodando.
+   - Crie as tabelas e schemas utilizando os scripts em `src/sql_operations`.
+
+## Execução do Projeto
+
+1. Configure as credenciais para acessar o Google Sheets e SharePoint nas variáveis de ambiente ou arquivos de configuração.
+2. Execute o pipeline utilizando o script principal:
+
+   ```bash
+   poetry run python scripts_main/main.py
+   ```
+
+## Exemplos de Visualizações
+
+Os painéis Power BI gerados oferecem insights detalhados sobre:
+
+- Indicadores de saúde.
+- Cobertura da atenção básica por região.
+- Tabelas dinâmicas e dashboards interativos.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request com melhorias e novas funcionalidades.
+
+## Contato
+
+Para quaisquer dúvidas ou sugestões, entre em contato:
+
+- GitHub: [vinisique](https://github.com/vinisique)
+- Email: seuemail@example.com
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
