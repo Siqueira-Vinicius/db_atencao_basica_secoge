@@ -48,5 +48,5 @@ Antes de executar o projeto, certifique-se de que você tem os seguintes itens i
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seu-usuario/db-atbasica.git
+   git clone https://github.com/vinisique/atencao-basica-db.git
    cd db-atbasica
