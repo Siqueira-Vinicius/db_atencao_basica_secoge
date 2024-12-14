@@ -95,7 +95,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou env
 Para quaisquer dúvidas ou sugestões, entre em contato:
 
 - GitHub: [vinisique](https://github.com/vinisique)
-- Email: seuemail@example.com
+- Email: vinniesique@gmail.com
 
 ## Licença
 
