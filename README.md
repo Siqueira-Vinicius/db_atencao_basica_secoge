@@ -49,4 +49,4 @@ Antes de executar o projeto, certifique-se de que você tem os seguintes itens i
 
    ```bash
    git clone https://github.com/vinisique/atencao-basica-db.git
-   cd db-atbasica
+   cd atencao-basica-db
